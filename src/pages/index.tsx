@@ -26,7 +26,6 @@ const Container = stitches.styled("div", {
 
 const Homepage = () => {
   const githubUserQuery = useGithubUserQuery("franreysaycon")
-
   return (
     <MainContainer>
       <MetaHead
@@ -38,7 +37,10 @@ const Homepage = () => {
         {githubUserQuery.isSuccess && (
           <Container>
             <VerticalGrid>
-              <AvatarCircle src={githubUserQuery.data.avatarUrl} />
+              <AvatarCircle
+                src={githubUserQuery.data.avatarUrl}
+                alt="franreysaycon avatar"
+              />
               <h1>{githubUserQuery.data.name}</h1>
               <Box as="p" css={{ maxWidth: "15rem" }}>
                 {githubUserQuery.data.bio}

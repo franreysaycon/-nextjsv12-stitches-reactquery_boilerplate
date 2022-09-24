@@ -1,9 +1,10 @@
 import React from "react"
-import stitches from "../../stitches";
-import NextImage from "next/image"
+import stitches from "../../stitches"
+import NextImage, { StaticImageData } from "next/image"
 
 interface AvatarCircleProps {
-  src: string
+  src: string | StaticImageData
+  alt: string
 }
 
 const Container = stitches.styled("div", {
@@ -13,10 +14,10 @@ const Container = stitches.styled("div", {
   overflow: "hidden",
 })
 
-function AvatarCircle({ src }: AvatarCircleProps) {
+function AvatarCircle({ src, alt }: AvatarCircleProps) {
   return (
     <Container>
-      <NextImage src={src} width={200} height={200} />
+      <NextImage src={src} width={200} height={200} alt={alt} />
     </Container>
   )
 }

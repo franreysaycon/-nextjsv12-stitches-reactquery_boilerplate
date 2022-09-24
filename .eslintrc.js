@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     node: true,
     es2021: true,
+    jest: true,
   },
   extends: [
     "next/core-web-vitals",
@@ -18,7 +19,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "prettier", "@typescript-eslint"],
+  plugins: ["react", "jest", "prettier", "@typescript-eslint"],
   rules: {
     "@next/next/no-img-element": "off",
     "@typescript-eslint/no-use-before-define": "error",
