@@ -1,14 +1,15 @@
 import React, { useEffect } from "react"
 import type { AppProps } from "next/app"
-import Header from "../components/common/Header"
 import { sendPageViewEvent } from "../lib/ga"
 import { useRouter } from "next/router"
-import Footer from "../components/common/Footer"
+import { QueryClient, QueryClientProvider } from "react-query"
 import stitches from "../stitches"
 
 const Signature = stitches.styled("div", {
   display: "none",
 })
+
+const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -24,10 +25,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return (
-    <>
-      <Header />
+    <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />
-      <Footer />
       <Signature>
         Fran Saycon (@fsaycondev) - Fullstack / Web3 Dev &amp; Architect.
         Founder &amp; Director @ http://reactjs.org.ph/. FT Engineering Manager
@@ -35,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         signatures like these for the sites I make. I handle the whole frontend
         for this one; Visit my blog. https://fsaycon.dev. Do drop a follow! :D
       </Signature>
-    </>
+    </QueryClientProvider>
   )
 }
 

@@ -9,7 +9,9 @@ const stitches = createStitches({
     xxl: "(min-width: 96em)",
   },
   theme: {
-    fonts: {},
+    fonts: {
+      poppins: "Poppins, sans-serif",
+    },
     fontSizes: {
       xs: "0.75rem",
       sm: "0.875rem",
@@ -105,7 +107,7 @@ const stitches = createStitches({
       xl: "0.75rem",
       "2xl": "1rem",
       "3xl": "1.5rem",
-      full: "9999px",
+      full: "100%",
     },
     zIndices: {
       hide: -1,
@@ -126,9 +128,9 @@ const stitches = createStitches({
 })
 
 const globalStyles = stitches.globalCss({
-  "*": { boxSizing: "border-box", fontFamily: "$arbeit" },
-  "*:after": { boxSizing: "border-box", fontFamily: "$arbeit" },
-  "*:before": { boxSizing: "border-box", fontFamily: "$arbeit" },
+  "*": { boxSizing: "border-box", fontFamily: "$poppins" },
+  "*:after": { boxSizing: "border-box", fontFamily: "$poppins" },
+  "*:before": { boxSizing: "border-box", fontFamily: "$poppins" },
   body: {
     margin: 0,
     padding: 0,
@@ -150,6 +152,9 @@ const globalStyles = stitches.globalCss({
   h4: { margin: 0 },
   h5: { margin: 0 },
   h6: { margin: 0 },
+  p: {
+    margin: 0,
+  },
 })
 
 globalStyles()

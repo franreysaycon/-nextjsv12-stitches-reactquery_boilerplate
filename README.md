@@ -1,4 +1,4 @@
-# EZU 
+# NextJS + Stitches + React Query + Google Analytics + Typescript Boilerplate by Franrey Saycon
 
 ## Requirements
 - Node v16.13 or above

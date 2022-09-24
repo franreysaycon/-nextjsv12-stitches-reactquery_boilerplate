@@ -22,6 +22,7 @@
     "@walletconnect/web3-provider": "^1.7.0",
     "authereum": "^0.1.14",
     "axios": "^0.27.2",
+    "axios-case-converter": "^0.9.0",
     "camelcase-keys": "^7.0.2",
     "click-outside-hook": "^1.1.0",
     "ethers": "^5.5.2",
