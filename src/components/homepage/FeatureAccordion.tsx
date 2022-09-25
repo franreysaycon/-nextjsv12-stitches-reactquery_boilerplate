@@ -12,6 +12,12 @@ const FeatureAccordion = () => (
           Hello World! Enjoy a NextJS v12 boilerplate.
         </Box>
         <Box as="p">
+          My approach on this boilerplate is to maximize control. The libraries
+          are chosen with that main criteria in mind while making sure we get
+          best practices for free as much as possible and create a structure
+          that can be touched by a big team and scale comfortably in the future.
+        </Box>
+        <Box as="p">
           The main language is <strong>Typescript</strong>. It&apos;s just good
           to optimized for collaboration early and to enjoy the many benefits of
           a typed language especially for apps at scale.
@@ -51,11 +57,11 @@ const FeatureAccordion = () => (
           </Box>
         </Box>
         <Box as="p">
-          For static analysis, I used <strong>eslint</strong> and
-          <strong>tsc --noEmit</strong>. This only uses eslint standard, change
-          it depending on your needs! For formatting, I used
-          <strong>prettier</strong> behind eslint so it&apos;s automatic. I
-          highly suggest to use VSCode eslint extension to catch problems early.
+          For static analysis, I use <strong>eslint</strong>. This only uses
+          eslint standard, change it depending on your needs! For formatting, I
+          used&nbsp;<strong>prettier</strong> behind eslint so it&apos;s
+          automatic. I highly suggest to use VSCode eslint extension to catch
+          problems early.
         </Box>
         <Box>
           The following environment variables are part of the setup. Check
@@ -69,6 +75,11 @@ const FeatureAccordion = () => (
             <li>
               <strong>NEXT_PUBLIC_GA_MEASUREMENT_ID</strong> - measurement ID
               for google analytics v4
+            </li>
+            <li>
+              <strong>NEXT_PUBLIC_API_BASE_URL</strong> - the base url of your
+              API endpoint. This is assuming you only have one URL for your
+              backend.
             </li>
           </Box>
         </Box>
@@ -112,8 +123,14 @@ const FeatureAccordion = () => (
               and add all images under that image.
             </li>
             <li>all common images is under the images/common folder.</li>
-            <li>stitches folder contains all stiches configurations</li>
+            <li>stitches folder contains all stiches configurations.</li>
+            <li>playwright folder contains all e2e tests.</li>
           </Box>
+        </Box>
+        <Box>
+          We use the Pascal case for our components and camel case for other
+          miscellaneous files. We of course also follow the use prefix for
+          hooks.
         </Box>
         <Box as="p">
           It is important to note that these are just suggestions and a good
@@ -129,6 +146,11 @@ const FeatureAccordion = () => (
           CSS in JS. SSR is already setup.
         </Box>
         <Box as="p">
+          I prefer to push for a mobile first approach on all style definitions.
+          Examples of that is how I achieved responsiveness on this boilerplate
+          preview. Check the homepage code!
+        </Box>
+        <Box as="p">
           <strong>stitches/index.ts</strong> contains the global CSS with simple
           resets and theme tokens using standard theme token values and
           breakpoints.
@@ -142,40 +164,91 @@ const FeatureAccordion = () => (
           stitches object definitions.
         </Box>
         <Box>
-          <strong>Animation Philosophy</strong>
-          <Box as="ul" css={{ margin: "$space$4 0 0 0" }}>
-            <li>
-              use stitches whenever possible especially for simple keyframing.
-            </li>
-            <li>
-              for animations that require JS capabilities, use framer motion.
-            </li>
-            <li>
-              for animations that require spring transitions, use framer motion.
-            </li>
-          </Box>
+          I am not opinionated on how one should do animations. I would say use
+          stitches defined animations as much as possible to keep things in CSS
+          on build. Only use <strong>framer-motion</strong> if you can&apos;t
+          achieve it cleanly with stitches alone. Especially if it involves
+          spring transitions, viewports triggered animations, drag and drop,
+          etc.
         </Box>
         <Box as="p">
-          We use stitches to style our <strong>@radixui</strong>.
+          We use stitches to style our <strong>@radixui</strong>. To take
+          advantage of stitches css APIs, do use the Box component then override
+          it with the HTML element you want.
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="API Integration" value="item-4">
       <VerticalGrid>
         <Box as="p">
-          <strong>NextJS</strong> as the main framework.
+          This boilerplate assumes you would be using REST. Given a certain
+          resource, you would create a service file as stated in the folder
+          setup philosophy. Do change it according to your needs!
+        </Box>
+        <Box as="p">
+          I use <strong>react-query</strong> to handle our async API requests
+          with <strong>axios</strong>.
+        </Box>
+        <Box as="p">
+          Under services folder, we use the axios factory pattern to create an
+          API client for a specific backend API. If you only have one, it&apos;s
+          natural that only one client exists. The example API client is setup
+          with an interceptor to convert all API results into camelcase.
+        </Box>
+        <Box as="p">
+          I suggest to take advantage of axios interceptors to try
+          authentication refresh retries on a failed auth APIs. Take advantage
+          of the factor pattern to enable different clients and have their own
+          custom rules.
+        </Box>
+        <Box as="p">
+          Take advantage of configuring the query client in _app.tsx as well for
+          any conveniences you want implemented globally.
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Testing" value="item-5">
       <VerticalGrid>
         <Box as="p">
-          <strong>NextJS</strong> as the main framework.
+          Our general setup is to use <strong>jest</strong> and&nbsp;
+          <strong>mock service worker</strong> as our main testing libraries.
+          Jest for the runner and mock service workers for mocking API calls.
+        </Box>
+        <Box as="p">
+          For unit test, we want to test, all components including pages, hooks,
+          and utility functions under the lib folder. I would not test services
+          as it&apos;s already covered by using mock service workers.
+        </Box>
+        <Box as="p">
+          We put all page tests under __test__ folder. We utilize
+          <strong>@testing-library/react</strong> to aid in testing hooks and
+          components.
+        </Box>
+        <Box as="p">
+          The Jest setup involves automatic clearing of mocks and installation
+          of mock service workers. As stated each mock should cover one service,
+          and combined in the mocks/server.ts file.
+        </Box>
+        <Box as="p">
+          For E2E test, we use <strong>playwright</strong>. All tests stored in
+          the playwright folder.
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Analytics" value="item-6">
-      <></>
+      <Box as="p">
+        It&apos;s also important to think about sending statistics on people who
+        are using your frontend.
+      </Box>
+      <Box as="p">
+        This boilerplate has built in definitions for Google Analytics v4, but
+        it will only work if a NEXT_PUBLIC_GA_MEASUREMENT_ID was set.
+      </Box>
+      <Box as="p">
+        If you don&apos;t want to use Google Analytics, delete the only lib
+        function in this boilerplate and remove the useEffect hook that uses it
+        at _app.tsx.
+      </Box>
     </FeatureAccordionItem>
   </Accordion.Root>
 )

@@ -22,14 +22,6 @@ const slideUp = stitches.keyframes({
 
 const AccordionHeader = stitches.styled(Accordion.Header, {
   display: "flex",
-})
-
-const AccordionChevron = stitches.styled(ChevronDownIcon, {
-  transition: "transform 300ms",
-  "[data-state=open] &": { transform: "rotate(180deg)" },
-})
-
-const AccordionItem = stitches.styled(Accordion.Item, {
   "&:hover": {
     cursor: "pointer",
   },
@@ -38,6 +30,14 @@ const AccordionItem = stitches.styled(Accordion.Item, {
       opacity: 0.7,
     },
   },
+})
+
+const AccordionChevron = stitches.styled(ChevronDownIcon, {
+  transition: "transform 300ms",
+  "[data-state=open] &": { transform: "rotate(180deg)" },
+})
+
+const AccordionItem = stitches.styled(Accordion.Item, {
   '&[data-state="open"]': {
     border: "1px solid $almond",
   },
