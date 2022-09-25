@@ -9,13 +9,17 @@ const stitches = createStitches({
     xxl: "(min-width: 96em)",
   },
   theme: {
+    colors: {
+      almond: "#FBE9DA",
+      darkJungleGreen: "#071E22",
+    },
     fonts: {
       poppins: "Poppins, sans-serif",
     },
     fontSizes: {
       xs: "0.75rem",
       sm: "0.875rem",
-      md: "1rem",
+      rg: "1rem",
       lg: "1.125rem",
       xl: "1.25rem",
       "2xl": "1.5rem",

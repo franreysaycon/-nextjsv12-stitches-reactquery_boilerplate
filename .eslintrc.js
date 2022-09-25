@@ -19,7 +19,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "jest", "prettier", "@typescript-eslint"],
+  plugins: ["react", "jest", "@typescript-eslint", "prettier"],
   rules: {
     "@next/next/no-img-element": "off",
     "@typescript-eslint/no-use-before-define": "error",

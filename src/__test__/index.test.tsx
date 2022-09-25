@@ -1,7 +1,7 @@
 import { render, waitFor, screen } from "@testing-library/react"
 import React from "react"
 import { QueryClient, QueryClientProvider } from "react-query"
-import Homepage from "./index"
+import Homepage from "../pages/index"
 
 const queryClient = new QueryClient()
 

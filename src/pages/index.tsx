@@ -8,20 +8,37 @@ import stitches from "../stitches"
 import VerticalGrid from "../components/common/VerticalGrid"
 import Box from "../components/common/Box"
 import { fadeIn } from "../stitches/keyframes"
+import FeatureAccordion from "../components/homepage/FeatureAccordion"
 
 const Container = stitches.styled("div", {
-  alignItems: "center",
   display: "flex",
   flexDirection: "column",
   height: "fit-content",
-  justifyContent: "center",
-  margin: "auto",
   minHeight: "inherit",
   width: "100%",
+  paddingTop: "$space$8",
   "@md": {
     flexDirection: "row",
   },
   animation: `${fadeIn} ease-in 0.5s`,
+})
+
+const AvatarContainer = stitches.styled(VerticalGrid, {
+  paddingTop: "$space$4",
+  "@md": {
+    position: "sticky",
+    top: 0,
+    left: 0,
+  },
+})
+
+const AccordionContainer = stitches.styled(Box, {
+  maxWidth: "60rem",
+  width: "100%",
+  marginTop: "$space$4",
+  "@md": {
+    marginTop: 0,
+  },
 })
 
 const Homepage = () => {
@@ -36,16 +53,19 @@ const Homepage = () => {
       <MaxContainer>
         {githubUserQuery.isSuccess && (
           <Container>
-            <VerticalGrid>
+            <AvatarContainer>
               <AvatarCircle
                 src={githubUserQuery.data.avatarUrl}
                 alt="franreysaycon avatar"
               />
               <h1>{githubUserQuery.data.name}</h1>
-              <Box as="p" css={{ maxWidth: "15rem" }}>
+              <Box as="p" css={{ maxWidth: "20rem" }}>
                 {githubUserQuery.data.bio}
               </Box>
-            </VerticalGrid>
+            </AvatarContainer>
+            <AccordionContainer>
+              <FeatureAccordion />
+            </AccordionContainer>
           </Container>
         )}
       </MaxContainer>
