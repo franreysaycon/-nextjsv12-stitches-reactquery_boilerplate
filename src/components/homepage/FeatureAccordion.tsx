@@ -6,17 +6,31 @@ import FeatureAccordionItem from "./FeatureAccordionItem"
 
 const FeatureAccordion = () => (
   <Accordion.Root type="single" defaultValue="item-1" collapsible={true}>
-    <FeatureAccordionItem header="General Setup" value="item-1">
+    <FeatureAccordionItem header="Introduction" value="item-1">
       <VerticalGrid>
         <Box as="p" css={{ fontWeight: "$bold" }}>
           Hello World! Enjoy a NextJS v12 boilerplate.
         </Box>
         <Box as="p">
-          My approach on this boilerplate is to maximize control. The libraries
-          are chosen with that main criteria in mind while making sure we get
-          best practices for free as much as possible and create a structure
-          that can be touched by a big team and scale comfortably in the future.
+          My approach on this boilerplate is to maximize control. I am not a fan
+          of libaries that feature bloat themselves to something that
+          doesn&apos;t make sense anymore or too complex. I want to be close as
+          much as possible to React/NextJS and CSS bare essentials.
         </Box>
+        <Box as="p">
+          The libraries are chosen with that main criteria in mind while making
+          sure we get best practices for free as much as possible and create a
+          structure that can be touched by a big team and scale comfortably in
+          the future.
+        </Box>
+        <Box as="p">
+          Of course nothing is set on stone. No boilerplate can capture all
+          needs! Do customize.
+        </Box>
+      </VerticalGrid>
+    </FeatureAccordionItem>
+    <FeatureAccordionItem header="General Setup" value="item-3">
+      <VerticalGrid>
         <Box as="p">
           The main language is <strong>Typescript</strong>. It&apos;s just good
           to optimized for collaboration early and to enjoy the many benefits of
@@ -36,7 +50,7 @@ const FeatureAccordion = () => (
           for this accordion component.
         </Box>
         <Box>
-          Built in components include the following:
+          I created some handy components:
           <Box as="ul" css={{ margin: "$space$4 0 0 0" }}>
             <li>
               <strong>Box</strong> - stitches enabled div. (click on styling to
@@ -93,7 +107,7 @@ const FeatureAccordion = () => (
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
-    <FeatureAccordionItem header="Folder Philosophy" value="item-2">
+    <FeatureAccordionItem header="Folder Philosophy" value="item-4">
       <VerticalGrid>
         <Box>
           Here&apos;s the general philosophy for the folder setup:
@@ -139,7 +153,7 @@ const FeatureAccordion = () => (
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
-    <FeatureAccordionItem header="Styling" value="item-3">
+    <FeatureAccordionItem header="Styling" value="item-5">
       <VerticalGrid>
         <Box as="p">
           We use <strong>@stitches/react</strong> as the main styling solution -
@@ -178,7 +192,7 @@ const FeatureAccordion = () => (
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
-    <FeatureAccordionItem header="API Integration" value="item-4">
+    <FeatureAccordionItem header="API Integration" value="item-6">
       <VerticalGrid>
         <Box as="p">
           This boilerplate assumes you would be using REST. Given a certain
@@ -207,7 +221,7 @@ const FeatureAccordion = () => (
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
-    <FeatureAccordionItem header="Testing" value="item-5">
+    <FeatureAccordionItem header="Testing" value="item-7">
       <VerticalGrid>
         <Box as="p">
           Our general setup is to use <strong>jest</strong> and&nbsp;
@@ -235,20 +249,22 @@ const FeatureAccordion = () => (
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
-    <FeatureAccordionItem header="Analytics" value="item-6">
-      <Box as="p">
-        It&apos;s also important to think about sending statistics on people who
-        are using your frontend.
-      </Box>
-      <Box as="p">
-        This boilerplate has built in definitions for Google Analytics v4, but
-        it will only work if a NEXT_PUBLIC_GA_MEASUREMENT_ID was set.
-      </Box>
-      <Box as="p">
-        If you don&apos;t want to use Google Analytics, delete the only lib
-        function in this boilerplate and remove the useEffect hook that uses it
-        at _app.tsx.
-      </Box>
+    <FeatureAccordionItem header="Analytics" value="item-8">
+      <VerticalGrid>
+        <Box as="p">
+          It&apos;s also important to think about sending statistics on people
+          who are using your frontend.
+        </Box>
+        <Box as="p">
+          This boilerplate has built in definitions for Google Analytics v4, but
+          it will only work if a NEXT_PUBLIC_GA_MEASUREMENT_ID was set.
+        </Box>
+        <Box as="p">
+          If you don&apos;t want to use Google Analytics, delete the only lib
+          function in this boilerplate and remove the useEffect hook that uses
+          it at _app.tsx.
+        </Box>
+      </VerticalGrid>
     </FeatureAccordionItem>
   </Accordion.Root>
 )
