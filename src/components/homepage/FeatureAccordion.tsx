@@ -3,6 +3,7 @@ import * as Accordion from "@radix-ui/react-accordion"
 import VerticalGrid from "../common/VerticalGrid"
 import Box from "../common/Box"
 import FeatureAccordionItem from "./FeatureAccordionItem"
+import FeatureForm from "./FeatureForm"
 
 const FeatureAccordion = () => (
   <Accordion.Root type="single" defaultValue="item-1" collapsible={true}>
@@ -249,7 +250,12 @@ const FeatureAccordion = () => (
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
-    <FeatureAccordionItem header="Analytics" value="item-8">
+    <FeatureAccordionItem header="Forms" value="item-8">
+      <VerticalGrid>
+        <FeatureForm />
+      </VerticalGrid>
+    </FeatureAccordionItem>
+    <FeatureAccordionItem header="Analytics" value="item-9">
       <VerticalGrid>
         <Box as="p">
           It&apos;s also important to think about sending statistics on people

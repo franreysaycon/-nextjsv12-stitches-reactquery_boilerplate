@@ -1,0 +1,109 @@
+import React, { createContext, useCallback, useState } from "react"
+import * as Toast from "@radix-ui/react-toast"
+import stitches from "../../stitches"
+import VerticalGrid from "../common/VerticalGrid"
+import Box from "../common/Box"
+import Button from "../common/Button"
+
+interface ToastProviderProps {
+  children: React.ReactNode
+}
+
+interface ToastMeta {
+  header: string
+  description: string
+}
+
+export interface ToastProviderReturn {
+  open: boolean
+  showToast: (meta: ToastMeta) => void
+}
+
+export const ToastContext = createContext({} as ToastProviderReturn)
+
+const slideIn = stitches.keyframes({
+  from: { transform: `translateX(calc(100% + 25px))` },
+  to: { transform: "translateX(0)" },
+})
+
+const swipeOut = stitches.keyframes({
+  from: { transform: "translateX(var(--radix-toast-swipe-end-x))" },
+  to: { transform: `translateX(calc(100% + 25px))` },
+})
+
+const hide = stitches.keyframes({
+  "0%": { opacity: 1 },
+  "100%": { opacity: 0 },
+})
+
+const ToastContainer = stitches.styled(Toast.Root, {
+  position: "fixed",
+  top: 25,
+  right: 25,
+  borderRadius: 6,
+  boxShadow:
+    "hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px",
+  padding: 15,
+  display: "grid",
+  gridTemplateColumns: "auto max-content",
+  columnGap: 15,
+  alignItems: "center",
+
+  "@media (prefers-reduced-motion: no-preference)": {
+    '&[data-state="open"]': {
+      animation: `${slideIn} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+    },
+    '&[data-state="closed"]': {
+      animation: `${hide} 100ms ease-in`,
+    },
+    '&[data-swipe="move"]': {
+      transform: "translateX(var(--radix-toast-swipe-move-x))",
+    },
+    '&[data-swipe="cancel"]': {
+      transform: "translateX(0)",
+      transition: "transform 200ms ease-out",
+    },
+    '&[data-swipe="end"]': {
+      animation: `${swipeOut} 100ms ease-out`,
+    },
+  },
+})
+
+const ActionContainer = stitches.styled(Toast.Action, {
+  border: "none",
+  backgroundColor: "white",
+})
+
+const ToastProvider = ({ children }: ToastProviderProps) => {
+  const [open, setOpen] = useState(false)
+  const [meta, setMeta] = useState<ToastMeta>()
+
+  const showToast = useCallback((meta: ToastMeta) => {
+    setMeta(meta)
+    setOpen(true)
+  }, [])
+
+  return (
+    <ToastContext.Provider value={{ open, showToast }}>
+      <Toast.Provider>
+        {children}
+        <ToastContainer open={open} onOpenChange={setOpen}>
+          <VerticalGrid css={{ gridGap: "$space$2" }}>
+            <Toast.Title>
+              <Box css={{ fontWeight: "$bold" }}>{meta?.header}</Box>
+            </Toast.Title>
+            <Toast.Description>{meta?.description}</Toast.Description>
+          </VerticalGrid>
+          <ActionContainer
+            altText={`close ${meta?.header} and ${meta?.description} toast notification`}
+          >
+            <Button>OK</Button>
+          </ActionContainer>
+        </ToastContainer>
+        <Toast.Viewport />
+      </Toast.Provider>
+    </ToastContext.Provider>
+  )
+}
+
+export default ToastProvider
