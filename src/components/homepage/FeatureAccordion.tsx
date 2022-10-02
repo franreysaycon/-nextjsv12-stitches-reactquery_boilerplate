@@ -13,45 +13,44 @@ const FeatureAccordion = () => (
           Hello World! Enjoy a NextJS v12 boilerplate.
         </Box>
         <Box as="p">
-          My approach on this boilerplate is to maximize control. I am not a fan
-          of libaries that feature bloat themselves to something that
-          doesn&apos;t make sense anymore or too complex. I want to be close as
-          much as possible to React/NextJS and CSS bare essentials.
+          My approach to this boilerplate is to maximize control while not
+          reinventing the wheel in terms of good practices such as
+          accessibility, theme tokens, cross-browser style extensions,
+          asynchronous API fetching best practices, form handling, etc.
         </Box>
         <Box as="p">
-          The libraries are chosen with that main criteria in mind while making
-          sure we get best practices for free as much as possible and create a
-          structure that can be touched by a big team and scale comfortably in
-          the future.
+          I chose libraries with the mindset above. Of course, feel free to
+          customize it according to your needs.
         </Box>
         <Box as="p">
-          Of course nothing is set on stone. No boilerplate can capture all
-          needs! Do customize.
+          PS: I didn&apos;t include anything about global state management.
+          Hahaha! :P I would choose{" "}
+          <Box as="a" href="https://github.com/pmndrs/zustand" target="_blank">
+            zustand
+          </Box>
+          , though, haha!
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
-    <FeatureAccordionItem header="General Setup" value="item-3">
+    <FeatureAccordionItem header="Development Environment" value="item-3">
       <VerticalGrid>
         <Box as="p">
-          The main language is <strong>Typescript</strong>. It&apos;s just good
-          to optimized for collaboration early and to enjoy the many benefits of
-          a typed language especially for apps at scale.
+          I used yarn as a package manager, and Node should be version 16 and
+          above.
         </Box>
         <Box as="p">
-          It assumed you will be using NextJS with SSR and/or ISR.&nbsp;
-          <strong>next.config.js</strong> includes the domain whitelisting for
-          github api to load the avatar for NextJS&apos;s image optimization.
-          SSG means you would need to handle image optimization on your own.
+          The primary language is <strong>Typescript</strong>. It&apos;s just
+          good to optimize for collaboration early and to enjoy the many
+          benefits of a typed language, especially for apps at scale.
         </Box>
         <Box as="p">
-          As for building components, as much as possible I create my own per
-          project dependent on the need but if it&apos;s a complicated component
-          and you want accessibility built in and other good practices, this
-          boilerplate includes <strong>@radixui</strong> primitives. I used it
-          for this accordion component.
+          The boilerplate assumes the paradigm of SSR or ISR with NextJS. You
+          will need more configurations to support SSG, especially if you care
+          about image optimization.
         </Box>
         <Box>
-          I created some handy components:
+          I created some small typical components, hoping they will help you
+          quickly in terms of layout and hint at how everything is structured.
           <Box as="ul" css={{ margin: "$space$4 0 0 0" }}>
             <li>
               <strong>Box</strong> - stitches enabled div. (click on styling to
@@ -67,44 +66,28 @@ const FeatureAccordion = () => (
             </li>
             <li>
               <strong>MetaHead</strong> - a next/head component that gives out
-              the usual meta tags looked for in a website.
+              the usual meta tags looking for in a website.
+            </li>
+            <li>
+              <strong>Button</strong> - stitches enabled button
+            </li>
+            <li>
+              <strong>Input</strong> - stitches enabled input
+            </li>
+            <li>
+              <strong>ToastProvider</strong> - built with @radixui primitives to
+              enable toast notifications globally.
             </li>
           </Box>
         </Box>
         <Box as="p">
-          For static analysis, I use <strong>eslint</strong>. This only uses
-          eslint standard, change it depending on your needs! For formatting, I
-          used&nbsp;<strong>prettier</strong> behind eslint so it&apos;s
-          automatic. I highly suggest to use VSCode eslint extension to catch
-          problems early.
-        </Box>
-        <Box>
-          The following environment variables are part of the setup. Check
-          .env.example for this.
-          <Box as="ul" css={{ margin: "$space$4 0 0 0" }}>
-            <li>
-              <strong>NEXT_PUBLIC_SITE_URL</strong> - absolute url of your
-              application&apos;s index needed for meta tags to work properly and
-              sitemap creation.
-            </li>
-            <li>
-              <strong>NEXT_PUBLIC_GA_MEASUREMENT_ID</strong> - measurement ID
-              for google analytics v4
-            </li>
-            <li>
-              <strong>NEXT_PUBLIC_API_BASE_URL</strong> - the base url of your
-              API endpoint. This is assuming you only have one URL for your
-              backend.
-            </li>
-          </Box>
+          Eslint and prettier are the heroes for static analysis and automatic
+          formatting. This boilerplate just used standard rules optimized for
+          Typescript.
         </Box>
         <Box as="p">
-          For commit checks, I used <strong>husky</strong> (a pre-commit Git
-          hook) with <strong>lint-staged</strong> to automatically check any
-          formatting errors ahead of time.
-        </Box>
-        <Box as="p">
-          This also has built-in site mapping and robots.txt, created on build.
+          To catch integration problems early, husky with lint-staged to
+          automatically check any formatting errors ahead of time (pre-commit).
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
@@ -123,147 +106,197 @@ const FeatureAccordion = () => (
               live.
             </li>
             <li>
-              all common components is under the components/common folder.
+              all common components are under the components/common folder.
             </li>
-            <li>for every custom hooks, place it under hooks.</li>
+            <li>
+              all common providers are under the components/providers folder.
+            </li>
+            <li>for every custom hook, place it under hooks.</li>
             <li>for every query hook, add it under hooks/queries</li>
             <li>for every mutation hook, add it under hooks/mutations</li>
-            <li>for every custom utilities, place it under lib</li>
+            <li>for every custom utility function, place it under lib</li>
             <li>
               for every group of API endpoints, create a file under services and
-              create a mock under mocks folder for testing.
+              create a mock under the mocks folder for testing.
             </li>
             <li>
-              for every images for a specific page, create a folder in images
-              and add all images under that image.
+              for every image for a specific page, create a folder in images and
+              add all images under that folder.
             </li>
-            <li>all common images is under the images/common folder.</li>
+            <li>all common images are under the images/common folder.</li>
             <li>stitches folder contains all stiches configurations.</li>
             <li>playwright folder contains all e2e tests.</li>
           </Box>
         </Box>
         <Box>
           We use the Pascal case for our components and camel case for other
-          miscellaneous files. We of course also follow the use prefix for
+          miscellaneous files. We, of course, also follow the use- prefix for
           hooks.
         </Box>
         <Box as="p">
-          It is important to note that these are just suggestions and a good
-          developer should adjust it depending on your needs. It just has to
-          make sense, consistent and most importantly simple. :D
+          PS: Remember, these are just suggestions! Adjust it depending on your
+          needs. Look for something that makes sense, is consistent, and, most
+          importantly, is simple. :D
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Styling" value="item-5">
       <VerticalGrid>
         <Box as="p">
-          We use <strong>@stitches/react</strong> as the main styling solution -
-          CSS in JS. SSR is already setup.
+          <strong>@stitches/react</strong> is the primary styling solution - CSS
+          in JS. The document file of Next is already configured to use
+          stitches.
         </Box>
         <Box as="p">
-          I prefer to push for a mobile first approach on all style definitions.
-          Examples of that is how I achieved responsiveness on this boilerplate
-          preview. Check the homepage code!
+          <strong>@radixui</strong> is the primary component library. It is
+          important to note that radix primarily gives out only primitives, and
+          it&apos;s up to us to style them. At least you don&apos;t have to
+          worry about accessibility and the likes anymore, especially for
+          typical but complex UI components like this accordion.
         </Box>
         <Box as="p">
-          <strong>stitches/index.ts</strong> contains the global CSS with simple
-          resets and theme tokens using standard theme token values and
-          breakpoints.
+          Optionally, for animations, <strong>framer-motion</strong> was
+          installed. I suggest being as close to stitches as possible,
+          especially for simple animations of fading in and out. We use
+          framer-motion on animations that rely on JS, like in view or spring
+          computations.
         </Box>
         <Box as="p">
-          <strong>stitches/keyframes.ts</strong> contains stitches only
-          animations
+          The philosophy for styling in this boilerplate is to be mobile-first.
         </Box>
         <Box as="p">
-          <strong>stitches/recipes.ts</strong> contains recipes you could add to
-          stitches object definitions.
-        </Box>
-        <Box>
-          I am not opinionated on how one should do animations. I would say use
-          stitches defined animations as much as possible to keep things in CSS
-          on build. Only use <strong>framer-motion</strong> if you can&apos;t
-          achieve it cleanly with stitches alone. Especially if it involves
-          spring transitions, viewports triggered animations, drag and drop,
-          etc.
+          The folder stitches contain different configurations of stitches. They
+          are the following:
+          <Box as="ul" css={{ margin: "$space$4 0 0 0" }}>
+            <li>
+              <strong>stitches/index.ts</strong> contains the global CSS with
+              simple resets and theme tokens using standard theme token values
+              and breakpoints.
+            </li>
+            <li>
+              <strong>stitches/keyframes.ts</strong> contains stitches-only
+              animations
+            </li>
+            <li>
+              <strong>stitches/recipes.ts</strong> contains recipes you could
+              add to stitches object definitions.
+            </li>
+          </Box>
         </Box>
         <Box as="p">
-          We use stitches to style our <strong>@radixui</strong>. To take
-          advantage of stitches css APIs, do use the Box component then override
-          it with the HTML element you want.
+          We use stitches to style @radixui primitives. To take advantage of
+          stitches CSS APIs, use the Box component, then override it with the
+          HTML element you want.
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="API Integration" value="item-6">
       <VerticalGrid>
         <Box as="p">
-          This boilerplate assumes you would be using REST. Given a certain
-          resource, you would create a service file as stated in the folder
-          setup philosophy. Do change it according to your needs!
+          This boilerplate assume you would be using REST. I included
+          <strong>react-query</strong> to make our lives easier in handling
+          asynchronous API states.
         </Box>
         <Box as="p">
-          I use <strong>react-query</strong> to handle our async API requests
-          with <strong>axios</strong>.
+          Under the services folder, we use the axios factory pattern to create
+          an API client for a specific backend API. If you only have one,
+          it&apos;s natural that only one client exists.
         </Box>
         <Box as="p">
-          Under services folder, we use the axios factory pattern to create an
-          API client for a specific backend API. If you only have one, it&apos;s
-          natural that only one client exists. The example API client is setup
-          with an interceptor to convert all API results into camelcase.
+          The example API client is set up with an interceptor to convert all
+          API results into camelcase. I recommend adding more interceptors for
+          authentication refreshes and automatic redirection to a login page.
         </Box>
         <Box as="p">
-          I suggest to take advantage of axios interceptors to try
-          authentication refresh retries on a failed auth APIs. Take advantage
-          of the factor pattern to enable different clients and have their own
-          custom rules.
-        </Box>
-        <Box as="p">
-          Take advantage of configuring the query client in _app.tsx as well for
-          any conveniences you want implemented globally.
+          It would be best if you took advantage of the factory pattern to
+          enable different clients and have their own custom rules.
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
-    <FeatureAccordionItem header="Testing" value="item-7">
+    <FeatureAccordionItem header="Forms" value="item-7">
       <VerticalGrid>
         <Box as="p">
-          Our general setup is to use <strong>jest</strong> and&nbsp;
-          <strong>mock service worker</strong> as our main testing libraries.
-          Jest for the runner and mock service workers for mocking API calls.
+          <strong>react-hook-forms</strong> is the main library for handling our
+          forms. We use it with <strong>Joi</strong> for schema validation,
+          integrated with a hook form joi resolver.
+        </Box>
+        <Box as="p">Here&apos;s an example working form.</Box>
+        <FeatureForm />
+        <Box as="p">
+          We use label @radixui primitives for form accessibility. Everything
+          else is created in-house, styled with stitches.
+        </Box>
+      </VerticalGrid>
+    </FeatureAccordionItem>
+    <FeatureAccordionItem header="Testing" value="item-8">
+      <VerticalGrid>
+        <Box as="p">
+          Our general setup uses <strong>jest</strong> and&nbsp;
+          <strong>mock service workers</strong> as our main testing libraries —
+          jest for the runner and mock service workers for mocking API calls.
         </Box>
         <Box as="p">
-          For unit test, we want to test, all components including pages, hooks,
-          and utility functions under the lib folder. I would not test services
-          as it&apos;s already covered by using mock service workers.
+          We want to test all components, including pages, hooks, and utility
+          functions, under the lib folder for unit testing. I would ignore
+          testing services as it&apos;s already covered by using mock service
+          workers.
         </Box>
         <Box as="p">
-          We put all page tests under __test__ folder. We utilize
+          We put all page tests under the __test__ folder. We utilize
           <strong>@testing-library/react</strong> to aid in testing hooks and
           components.
         </Box>
         <Box as="p">
           The Jest setup involves automatic clearing of mocks and installation
-          of mock service workers. As stated each mock should cover one service,
-          and combined in the mocks/server.ts file.
+          of mock service workers. Each mock should cover one service combined
+          in the mocks/server.ts file.
         </Box>
         <Box as="p">
-          For E2E test, we use <strong>playwright</strong>. All tests stored in
-          the playwright folder.
+          For E2E testing, we use <strong>playwright</strong>. The playwright
+          folder houses all such tests.
         </Box>
       </VerticalGrid>
     </FeatureAccordionItem>
-    <FeatureAccordionItem header="Forms" value="item-8">
+    <FeatureAccordionItem header="Deployment" value="item-9">
       <VerticalGrid>
-        <FeatureForm />
-      </VerticalGrid>
-    </FeatureAccordionItem>
-    <FeatureAccordionItem header="Analytics" value="item-9">
-      <VerticalGrid>
+        <Box as="p">I suggest deploying to Vercel for things to be easy.</Box>
         <Box as="p">
-          It&apos;s also important to think about sending statistics on people
-          who are using your frontend.
+          This boilerplate makes use of .env files for secret handling. The
+          following environment variables are part of the setup. Check
+          .env.example for this.
+          <Box as="ul" css={{ margin: "$space$4 0 0 0" }}>
+            <li>
+              <strong>NEXT_PUBLIC_SITE_URL</strong> - absolute URL of your
+              application&apos;s index needed for meta tags to work correctly
+              and sitemap creation.
+            </li>
+            <li>
+              <strong>NEXT_PUBLIC_GA_MEASUREMENT_ID</strong> - measurement ID
+              for google analytics v4
+            </li>
+            <li>
+              <strong>NEXT_PUBLIC_API_BASE_URL</strong> - the base URL of your
+              API endpoint, assuming you only have one URL for your backend.
+            </li>
+          </Box>
         </Box>
         <Box as="p">
-          This boilerplate has built in definitions for Google Analytics v4, but
-          it will only work if a NEXT_PUBLIC_GA_MEASUREMENT_ID was set.
+          There&apos;s also built-in site mapping and robots.txt, created on
+          build. PS: This does not have PWA configurations. It should be easy to
+          incorporate it, though.
+        </Box>
+      </VerticalGrid>
+    </FeatureAccordionItem>
+    <FeatureAccordionItem header="Analytics" value="item-10">
+      <VerticalGrid>
+        <Box as="p">
+          It&apos;s essential to consider sending statistics from people using
+          your front end.
+        </Box>
+        <Box as="p">
+          This boilerplate has built-in definitions for&nbsp;
+          <strong>Google Analytics v4</strong>, but it will only work if we set
+          NEXT_PUBLIC_GA_MEASUREMENT_ID.
         </Box>
         <Box as="p">
           If you don&apos;t want to use Google Analytics, delete the only lib

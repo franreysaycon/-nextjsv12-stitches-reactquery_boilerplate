@@ -18,7 +18,9 @@ const formSchema = Joi.object({
 })
 
 const FormLabel = stitches.styled(Label.Root, {
-  marginRight: "$1",
+  height: "fit-content",
+  marginRight: "$2",
+  minWidth: "max-content",
 })
 
 const FeatureForm = () => {
@@ -37,15 +39,20 @@ const FeatureForm = () => {
   return (
     <Box as="form" onSubmit={handleSubmit(sendToToast)}>
       <VerticalGrid>
-        <Box>
+        <Box css={{ display: "flex", alignItems: "center" }}>
           <FormLabel htmlFor="fullName">Who are you?</FormLabel>
           <Input
             type="text"
             placeholder="Enter your fullname"
+            css={{ width: "100% " }}
             {...register("fullName")}
           />
         </Box>
-        <Input type="submit" value="Submit" />
+        <Input
+          type="submit"
+          value="Submit"
+          css={{ backgroundColor: "$almond", "&:hover": { cursor: "pointer" } }}
+        />
       </VerticalGrid>
     </Box>
   )

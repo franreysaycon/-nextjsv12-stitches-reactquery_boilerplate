@@ -48,6 +48,7 @@ const ToastContainer = stitches.styled(Toast.Root, {
   gridTemplateColumns: "auto max-content",
   columnGap: 15,
   alignItems: "center",
+  backgroundColor: "white",
 
   "@media (prefers-reduced-motion: no-preference)": {
     '&[data-state="open"]': {
