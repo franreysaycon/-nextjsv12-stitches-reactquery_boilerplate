@@ -13,6 +13,13 @@ const Input = stitches.styled("input", {
   lineHeight: 1,
   boxShadow: `0 0 0 1px #202020`,
   "&:focus": { boxShadow: `0 0 0 2px #202020` },
+  variants: {
+    error: {
+      true: {
+        border: "1px solid red",
+      },
+    },
+  },
 })
 
 export default Input

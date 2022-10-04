@@ -16,7 +16,6 @@ const Container = stitches.styled("div", {
   height: "fit-content",
   minHeight: "inherit",
   width: "100%",
-  paddingTop: "$space$8",
   "@md": {
     flexDirection: "row",
   },
@@ -35,10 +34,8 @@ const AvatarContainer = stitches.styled(VerticalGrid, {
 const AccordionContainer = stitches.styled(Box, {
   maxWidth: "60rem",
   width: "100%",
-  marginTop: "$space$4",
-  "@md": {
-    marginTop: 0,
-  },
+  paddingTop: "$space$4",
+  height: "fit-content",
 })
 
 const Homepage = () => {

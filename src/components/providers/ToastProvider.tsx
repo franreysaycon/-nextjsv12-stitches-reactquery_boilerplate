@@ -70,6 +70,12 @@ const ToastContainer = stitches.styled(Toast.Root, {
   },
 })
 
+const Description = stitches.styled(Toast.Description, {
+  width: "15rem",
+  maxWidth: "15rem",
+  overflowWrap: "break-word",
+})
+
 const ActionContainer = stitches.styled(Toast.Action, {
   border: "none",
   backgroundColor: "white",
@@ -93,7 +99,7 @@ const ToastProvider = ({ children }: ToastProviderProps) => {
             <Toast.Title>
               <Box css={{ fontWeight: "$bold" }}>{meta?.header}</Box>
             </Toast.Title>
-            <Toast.Description>{meta?.description}</Toast.Description>
+            <Description>{meta?.description}</Description>
           </VerticalGrid>
           <ActionContainer
             altText={`close ${meta?.header} and ${meta?.description} toast notification`}

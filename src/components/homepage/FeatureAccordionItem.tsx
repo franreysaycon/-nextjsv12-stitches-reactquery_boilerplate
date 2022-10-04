@@ -56,7 +56,6 @@ const AccordionTrigger = stitches.styled(Accordion.Trigger, {
 })
 
 const AccordionContent = stitches.styled(Accordion.Content, {
-  padding: "$space$4",
   overflow: "hidden",
   animationFillMode: "forwards",
   '&[data-state="open"]': {
