@@ -164,7 +164,7 @@ const FeatureAccordion = () => (
         <Box as="p">
           The philosophy for styling in this boilerplate is to be mobile-first.
         </Box>
-        <Box as="p">
+        <Box>
           The folder stitches contain different configurations of stitches. They
           are the following:
           <Box as="ul" css={{ margin: "$space$4 0 0 0" }}>
@@ -260,7 +260,7 @@ const FeatureAccordion = () => (
     <FeatureAccordionItem header="Deployment" value="item-9">
       <VerticalGrid css={{ padding: "$space$4" }}>
         <Box as="p">I suggest deploying to Vercel for things to be easy.</Box>
-        <Box as="p">
+        <Box>
           This boilerplate makes use of .env files for secret handling. The
           following environment variables are part of the setup. Check
           .env.example for this.
