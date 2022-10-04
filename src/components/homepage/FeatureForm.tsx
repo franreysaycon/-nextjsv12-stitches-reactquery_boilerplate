@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { joiResolver } from "@hookform/resolvers/joi"
 import * as Label from "@radix-ui/react-label"
@@ -14,7 +14,7 @@ interface FormData {
 }
 
 const formSchema = Joi.object({
-  fullName: Joi.string().required(),
+  fullName: Joi.string().max(15).required(),
 })
 
 const FormLabel = stitches.styled(Label.Root, {
@@ -24,10 +24,11 @@ const FormLabel = stitches.styled(Label.Root, {
 })
 
 const FeatureForm = () => {
-  const { register, handleSubmit } = useForm<FormData>({
+  const { register, handleSubmit, formState } = useForm<FormData>({
     resolver: joiResolver(formSchema),
   })
   const { showToast } = useToast()
+  const nameError = formState.errors.fullName?.message
 
   const sendToToast = (formData: FormData) => {
     showToast({
@@ -35,6 +36,15 @@ const FeatureForm = () => {
       description: `Hey there, ${formData.fullName}!`,
     })
   }
+
+  useEffect(() => {
+    if (nameError) {
+      showToast({
+        header: "Error!",
+        description: nameError,
+      })
+    }
+  }, [nameError, showToast])
 
   return (
     <Box as="form" onSubmit={handleSubmit(sendToToast)}>
@@ -44,7 +54,8 @@ const FeatureForm = () => {
           <Input
             type="text"
             placeholder="Enter your fullname"
-            css={{ width: "100% " }}
+            css={{ width: "100%" }}
+            error={!!nameError}
             {...register("fullName")}
           />
         </Box>

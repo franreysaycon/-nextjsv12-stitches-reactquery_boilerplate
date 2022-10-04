@@ -8,7 +8,7 @@ import FeatureForm from "./FeatureForm"
 const FeatureAccordion = () => (
   <Accordion.Root type="single" defaultValue="item-1" collapsible={true}>
     <FeatureAccordionItem header="Introduction" value="item-1">
-      <VerticalGrid>
+      <VerticalGrid css={{ padding: "$space$4" }}>
         <Box as="p" css={{ fontWeight: "$bold" }}>
           Hello World! Enjoy a NextJS v12 boilerplate.
         </Box>
@@ -24,7 +24,7 @@ const FeatureAccordion = () => (
         </Box>
         <Box as="p">
           PS: I didn&apos;t include anything about global state management.
-          Hahaha! :P I would choose{" "}
+          Hahaha! :P I would choose&nbsp;
           <Box as="a" href="https://github.com/pmndrs/zustand" target="_blank">
             zustand
           </Box>
@@ -33,7 +33,7 @@ const FeatureAccordion = () => (
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Development Environment" value="item-3">
-      <VerticalGrid>
+      <VerticalGrid css={{ padding: "$space$4" }}>
         <Box as="p">
           I used yarn as a package manager, and Node should be version 16 and
           above.
@@ -92,7 +92,7 @@ const FeatureAccordion = () => (
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Folder Philosophy" value="item-4">
-      <VerticalGrid>
+      <VerticalGrid css={{ padding: "$space$4" }}>
         <Box>
           Here&apos;s the general philosophy for the folder setup:
           <Box as="ul" css={{ margin: "$space$4 0 0 0" }}>
@@ -141,7 +141,7 @@ const FeatureAccordion = () => (
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Styling" value="item-5">
-      <VerticalGrid>
+      <VerticalGrid css={{ padding: "$space$4" }}>
         <Box as="p">
           <strong>@stitches/react</strong> is the primary styling solution - CSS
           in JS. The document file of Next is already configured to use
@@ -191,9 +191,9 @@ const FeatureAccordion = () => (
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="API Integration" value="item-6">
-      <VerticalGrid>
+      <VerticalGrid css={{ padding: "$space$4" }}>
         <Box as="p">
-          This boilerplate assume you would be using REST. I included
+          This boilerplate assume you would be using REST. I included&nbsp;
           <strong>react-query</strong> to make our lives easier in handling
           asynchronous API states.
         </Box>
@@ -214,7 +214,7 @@ const FeatureAccordion = () => (
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Forms" value="item-7">
-      <VerticalGrid>
+      <VerticalGrid css={{ padding: "$space$4" }}>
         <Box as="p">
           <strong>react-hook-forms</strong> is the main library for handling our
           forms. We use it with <strong>Joi</strong> for schema validation,
@@ -229,7 +229,7 @@ const FeatureAccordion = () => (
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Testing" value="item-8">
-      <VerticalGrid>
+      <VerticalGrid css={{ padding: "$space$4" }}>
         <Box as="p">
           Our general setup uses <strong>jest</strong> and&nbsp;
           <strong>mock service workers</strong> as our main testing libraries —
@@ -258,7 +258,7 @@ const FeatureAccordion = () => (
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Deployment" value="item-9">
-      <VerticalGrid>
+      <VerticalGrid css={{ padding: "$space$4" }}>
         <Box as="p">I suggest deploying to Vercel for things to be easy.</Box>
         <Box as="p">
           This boilerplate makes use of .env files for secret handling. The
@@ -288,7 +288,7 @@ const FeatureAccordion = () => (
       </VerticalGrid>
     </FeatureAccordionItem>
     <FeatureAccordionItem header="Analytics" value="item-10">
-      <VerticalGrid>
+      <VerticalGrid css={{ padding: "$space$4" }}>
         <Box as="p">
           It&apos;s essential to consider sending statistics from people using
           your front end.
