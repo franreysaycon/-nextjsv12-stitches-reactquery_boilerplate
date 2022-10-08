@@ -9,6 +9,7 @@
     "lint-staged": "lint-staged",
     "lint": "next lint",
     "postbuild": "next-sitemap --config next-sitemap-config.js",
+    "test:e2e": "playwright test",
     "start": "next start",
     "test": "jest"
   },
@@ -47,6 +48,7 @@
     "web3modal": "^1.9.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.27.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.0.3",

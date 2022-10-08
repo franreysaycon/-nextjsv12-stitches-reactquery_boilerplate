@@ -45,3 +45,6 @@ yarn-error.log*
 netlify/functions/*.zip
 
 script_out
+/test-results/
+/playwright-report/
+/playwright/.cache/
