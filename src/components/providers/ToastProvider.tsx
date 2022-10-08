@@ -4,6 +4,7 @@ import stitches from "../../stitches"
 import VerticalGrid from "../common/VerticalGrid"
 import Box from "../common/Box"
 import Button from "../common/Button"
+import { fadeIn } from "../../stitches/keyframes"
 
 interface ToastProviderProps {
   children: React.ReactNode
@@ -21,41 +22,46 @@ export interface ToastProviderReturn {
 
 export const ToastContext = createContext({} as ToastProviderReturn)
 
-const slideIn = stitches.keyframes({
-  from: { transform: `translateX(calc(100% + 25px))` },
+export const slideIn = stitches.keyframes({
+  from: { transform: `translateX(calc(100%))` },
   to: { transform: "translateX(0)" },
 })
 
-const swipeOut = stitches.keyframes({
+export const swipeOut = stitches.keyframes({
   from: { transform: "translateX(var(--radix-toast-swipe-end-x))" },
-  to: { transform: `translateX(calc(100% + 25px))` },
+  to: { transform: `translateX(calc(100%))` },
 })
 
-const hide = stitches.keyframes({
-  "0%": { opacity: 1 },
-  "100%": { opacity: 0 },
+const Viewport = stitches.styled(Toast.Viewport, {
+  display: "flex",
+  justifyContent: "flex-end",
+  position: "fixed",
+  top: 0,
+  padding: "$4",
+  zIndex: "$toast",
+  margin: 0,
+  width: "100vw",
 })
 
 const ToastContainer = stitches.styled(Toast.Root, {
-  position: "fixed",
-  top: 25,
-  right: 25,
   borderRadius: 6,
   boxShadow:
     "hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px",
-  padding: 15,
+  padding: "$4",
   display: "grid",
   gridTemplateColumns: "auto max-content",
-  columnGap: 15,
+  columnGap: "$4",
   alignItems: "center",
   backgroundColor: "white",
+  width: "100%",
+  maxWidth: "25rem",
 
   "@media (prefers-reduced-motion: no-preference)": {
     '&[data-state="open"]': {
       animation: `${slideIn} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
     },
     '&[data-state="closed"]': {
-      animation: `${hide} 100ms ease-in`,
+      animation: `${fadeIn} 100ms ease-in`,
     },
     '&[data-swipe="move"]': {
       transform: "translateX(var(--radix-toast-swipe-move-x))",
@@ -71,14 +77,15 @@ const ToastContainer = stitches.styled(Toast.Root, {
 })
 
 const Description = stitches.styled(Toast.Description, {
-  width: "15rem",
-  maxWidth: "15rem",
   overflowWrap: "break-word",
 })
 
 const ActionContainer = stitches.styled(Toast.Action, {
   border: "none",
   backgroundColor: "white",
+  "&:hover": {
+    cursor: "pointer",
+  },
 })
 
 const ToastProvider = ({ children }: ToastProviderProps) => {
@@ -93,7 +100,6 @@ const ToastProvider = ({ children }: ToastProviderProps) => {
   return (
     <ToastContext.Provider value={{ open, showToast }}>
       <Toast.Provider>
-        {children}
         <ToastContainer open={open} onOpenChange={setOpen}>
           <VerticalGrid css={{ gridGap: "$space$2" }}>
             <Toast.Title>
@@ -107,8 +113,9 @@ const ToastProvider = ({ children }: ToastProviderProps) => {
             <Button>OK</Button>
           </ActionContainer>
         </ToastContainer>
-        <Toast.Viewport />
+        <Viewport />
       </Toast.Provider>
+      {children}
     </ToastContext.Provider>
   )
 }
