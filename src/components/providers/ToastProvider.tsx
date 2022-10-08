@@ -4,7 +4,7 @@ import stitches from "../../stitches"
 import VerticalGrid from "../common/VerticalGrid"
 import Box from "../common/Box"
 import Button from "../common/Button"
-import { fadeIn } from "../../stitches/keyframes"
+import { fadeOut } from "../../stitches/keyframes"
 
 interface ToastProviderProps {
   children: React.ReactNode
@@ -61,7 +61,7 @@ const ToastContainer = stitches.styled(Toast.Root, {
       animation: `${slideIn} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
     },
     '&[data-state="closed"]': {
-      animation: `${fadeIn} 100ms ease-in`,
+      animation: `${fadeOut} 100ms ease-in`,
     },
     '&[data-swipe="move"]': {
       transform: "translateX(var(--radix-toast-swipe-move-x))",
