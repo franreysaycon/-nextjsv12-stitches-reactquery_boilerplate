@@ -3,7 +3,6 @@ import type { AppProps } from "next/app"
 import { sendPageViewEvent } from "../lib/ga"
 import { useRouter } from "next/router"
 import { QueryClient, QueryClientProvider } from "react-query"
-import * as Toast from "@radix-ui/react-toast"
 import stitches from "../stitches"
 import ToastProvider from "../components/providers/ToastProvider"
 
@@ -38,7 +37,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           frontend for this one; Visit my blog. https://fsaycon.dev. Do drop a
           follow! :D
         </Signature>
-        <Toast.Viewport />
       </ToastProvider>
     </QueryClientProvider>
   )
