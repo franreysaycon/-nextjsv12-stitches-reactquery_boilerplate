@@ -110,7 +110,7 @@ const ToastProvider = ({ children }: ToastProviderProps) => {
           <ActionContainer
             altText={`close ${meta?.header} and ${meta?.description} toast notification`}
           >
-            <Button>OK</Button>
+            <Button as="div">OK</Button>
           </ActionContainer>
         </ToastContainer>
         <Viewport />
