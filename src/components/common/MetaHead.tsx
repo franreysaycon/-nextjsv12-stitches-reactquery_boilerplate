@@ -58,12 +58,42 @@ const MetaHead: React.FC<MetaHeadProps> = ({ title, description, link }) => (
       content="Psychedelics Anonymous | A Web3 brand."
       key="og:site_name"
     />
+
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link
       rel="icon"
       href={`${process.env.NEXT_PUBLIC_SITE_URL}/favicon.ico`}
       type="image/x-icon"
     />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href={`${process.env.NEXT_PUBLIC_SITE_URL}/apple-touch-icon.png`}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href={`${process.env.NEXT_PUBLIC_SITE_URL}/favicon-32x32.png`}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href={`${process.env.NEXT_PUBLIC_SITE_URL}/favicon-16x16.png`}
+    />
+    <link
+      rel="manifest"
+      href={`${process.env.NEXT_PUBLIC_SITE_URL}/site.webmanifest`}
+    />
+    <link
+      rel="mask-icon"
+      href={`${process.env.NEXT_PUBLIC_SITE_URL}/safari-pinned-tab.svg" color="#5bbad5`}
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff"></meta>
+
     <link rel="canonical" href={`${process.env.NEXT_PUBLIC_SITE_URL}${link}`} />
   </Head>
 )
