@@ -125,7 +125,7 @@ const FeatureAccordion = () => (
             </li>
             <li>all common images are under the images/common folder.</li>
             <li>stitches folder contains all stiches configurations.</li>
-            <li>playwright folder contains all e2e tests.</li>
+            <li>e2e folder contains all playwright e2e spec tests.</li>
           </Box>
         </Box>
         <Box>
