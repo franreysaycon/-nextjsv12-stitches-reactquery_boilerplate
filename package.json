@@ -1,8 +1,10 @@
 {
   "name": "next-stitches-typescript-boilerplate",
-  "private": true,
+  "version": "0.0.0",
+  "description": "A next boilerplate with stitches for styling and batteries included setup from tests to releases.",
   "scripts": {
     "build": "next build",
+    "prepare": "husky install",
     "deploy": "yarn build && yarn export",
     "dev": "next dev",
     "export": "next export",
@@ -11,8 +13,18 @@
     "postbuild": "next-sitemap --config next-sitemap-config.js",
     "test:e2e": "playwright test",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "commit": "cz",
+    "release": "standard-version --no-verify",
+    "release:patch": "standard-version --no-verify --release-as patch"
   },
+  "keywords": [
+    "next",
+    "stitches",
+    "typescript"
+  ],
+  "author": "Franrey Anthony S. Saycon",
+  "license": "MIT",
   "dependencies": {
     "@hookform/resolvers": "^2.9.8",
     "@netlify/functions": "^1.2.0",
@@ -22,7 +34,6 @@
     "@radix-ui/react-toast": "^1.0.0",
     "@stitches/react": "^1.2.8",
     "@types/react-dom": "^18.0.6",
-    "authereum": "^0.1.14",
     "axios": "^0.27.2",
     "axios-case-converter": "^0.9.0",
     "camelcase-keys": "^8.0.2",
@@ -36,6 +47,9 @@
     "react-query": "^3.39.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@commitlint/cz-commitlint": "^17.2.0",
     "@playwright/test": "^1.27.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -44,12 +58,13 @@
     "@types/node": "18.7.20",
     "@types/react": "^18.0.21",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "commitizen": "^4.2.5",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-jest": "^27.0.4",
-    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-n": "^15.4.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.1",
@@ -59,15 +74,9 @@
     "jest-environment-jsdom": "^29.0.3",
     "lint-staged": "^13.0.3",
     "msw": "^0.47.3",
-    "netlify-cli": "^11.8.3",
     "next-sitemap": "^3.1.22",
     "prettier": "^2.4.1",
-    "typescript": "^4.8.3",
-    "url-loader": "^4.1.1"
-  },
-  "lint-staged": {
-    "**/*.{ts,tsx}": [
-      "eslint --fix"
-    ]
+    "standard-version": "^9.5.0",
+    "typescript": "^4.8.3"
   }
 }
