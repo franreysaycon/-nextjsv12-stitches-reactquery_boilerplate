@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/compare/v0.0.2...v0.0.3) (2022-11-06)
+
+
+### ♻️ Code Refactoring
+
+* make package.json module versions fixed and remove netlify functions ([0f1f900](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/commit/0f1f900602e825cf2f19b0e07eef50877feccb4c))
+
 ### [0.0.2](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/compare/v0.0.1...v0.0.2) (2022-11-04)
 
 
