@@ -1,17 +1,17 @@
 # NextJSv12 + Stitches + React Query Boilerplate by Franrey Saycon
 
 ## Let the magic begin~
-You technically just need node+yarn (used Node v18 LTS) and a good internet ;)
+You technically just need node+pnpm (used Node v18 LTS) and a good internet ;)
 
 **To make all the nice things work properly, (installs everything you need and prepares commmit automations)**
 ```
-yarn
-yarn prepare (if prepare wasn't ran properly)
+pnpm
+pnpm prepare (if prepare wasn't ran properly)
 ```
 
 **To turn on everything,**
 ```
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -19,18 +19,18 @@ The port maybe different if 3000 is occupied.
 
 **To run tests,**
 ```
-yarn test
+pnpm test
 ```
 
 **To commit and trigger commitizen / lint staging,**
 ```
-yarn commit
+pnpm commit
 ```
-TIP: I highly suggest you check your lint stage first with `yarn lint-staged` since you might need to redo everything if a check failed. (sorta a punishment >:P).
+TIP: I highly suggest you check your lint stage first with `pnpm lint-staged` since you might need to redo everything if a check failed. (sorta a punishment >:P).
 
 **To release something and update the CHANGELOG automatically complete with tags,**
 ```
-yarn release
+pnpm release
 ```
 
 ### What's included?

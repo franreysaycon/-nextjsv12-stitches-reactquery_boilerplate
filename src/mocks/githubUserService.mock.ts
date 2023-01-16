@@ -3,7 +3,7 @@ import { GetUserResult } from "../services/githubUserService"
 
 const mocks = [
   rest.get<undefined, GetUserResult>(
-    `https://api.github.com/users/franreysaycon`,
+    `https://api.github.com/users/fransaycon`,
     async (_req, res, ctx) => {
       return res(
         ctx.json({

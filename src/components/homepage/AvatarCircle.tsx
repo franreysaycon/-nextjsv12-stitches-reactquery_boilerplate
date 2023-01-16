@@ -17,7 +17,7 @@ const Container = stitches.styled("div", {
 function AvatarCircle({ src, alt }: AvatarCircleProps) {
   return (
     <Container>
-      <NextImage src={src} width={200} height={200} alt={alt} />
+      <NextImage src={src} width={200} height={200} alt={alt} priority={true} />
     </Container>
   )
 }

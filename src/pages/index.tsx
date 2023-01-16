@@ -39,7 +39,7 @@ const AccordionContainer = stitches.styled(Box, {
 })
 
 const Homepage = () => {
-  const githubUserQuery = useGithubUserQuery("franreysaycon")
+  const githubUserQuery = useGithubUserQuery("fransaycon")
   return (
     <MainContainer>
       <MetaHead
