@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/compare/v0.0.3...v0.0.4) (2023-01-16)
+
+
+### ✨ Features
+
+* yarn > pnpm ([2bf9073](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/commit/2bf90736f5914c36c52c87dfc451c964ea0cff1a))
+
 ### [0.0.3](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/compare/v0.0.2...v0.0.3) (2022-11-06)
 
 
