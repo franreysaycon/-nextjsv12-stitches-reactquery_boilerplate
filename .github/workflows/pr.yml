@@ -1,0 +1,33 @@
+name: Pull Request Actions
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  static-analysis:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Node.js 18.13
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.13
+      - name: Run pnpm install
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.25.0
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile]
+      - name: Static Analysis - Lint
+        uses: pnpm/action-setup@v2
+        with:
+          cmd: lint
+      - name: Static Analysis - Types
+        uses: pnpm/action-setup@v2
+        with:
+          cmd: types

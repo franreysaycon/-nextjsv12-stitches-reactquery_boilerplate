@@ -1,4 +1,4 @@
-import stitches from "../../stitches";
+import stitches from "../../stitches"
 
 const Box = stitches.styled("div")
 

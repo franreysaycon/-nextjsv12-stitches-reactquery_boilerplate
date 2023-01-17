@@ -5,7 +5,7 @@ You technically just need node+pnpm (used Node v18 LTS) and a good internet ;)
 
 **To make all the nice things work properly, (installs everything you need and prepares commmit automations)**
 ```
-pnpm
+pnpm install
 pnpm prepare (if prepare wasn't ran properly)
 ```
 
