@@ -26,8 +26,10 @@ jobs:
       - name: Static Analysis - Lint
         uses: pnpm/action-setup@v2
         with:
+          version: 7.25.0
           cmd: lint
       - name: Static Analysis - Types
         uses: pnpm/action-setup@v2
         with:
+          version: 7.25.0
           cmd: types
