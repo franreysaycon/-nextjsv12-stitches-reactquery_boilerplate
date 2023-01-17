@@ -7,7 +7,7 @@ const queryClient = new QueryClient()
 
 describe("useGithubUserQuery", () => {
   it("should return the query hook without any problems", async () => {
-    const { result } = renderHook(() => useGithubUserQuery("franreysaycon"), {
+    const { result } = renderHook(() => useGithubUserQuery("fransaycon"), {
       wrapper: ({ children }) => (
         <QueryClientProvider client={queryClient}>
           {children}
