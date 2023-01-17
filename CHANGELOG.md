@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/compare/v0.0.4...v0.0.5) (2023-01-17)
+
+
+### ✨ Features
+
+* add github workflows template for PRs ([6a0944d](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/commit/6a0944d231fcd23ba8adf1f73c064dcd486d697f))
+
+
+### 🐛 Bug Fixes
+
+* failing test due to api change ([45b278c](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/commit/45b278cfb712b868a0bb4115f18e5e4ddf34e9df))
+* remove cz ([3c433cb](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/commit/3c433cba5aa586e76dbe270034c5043fb355a8d5))
+* version not specified in other static analysis ([bc19d5f](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/commit/bc19d5f01bf12646c1f84edabc878314ab467e4b))
+
 ### [0.0.4](https://github.com/franreysaycon/-nextjsv12-stitches-reactquery_boilerplate/compare/v0.0.3...v0.0.4) (2023-01-16)
 
 
